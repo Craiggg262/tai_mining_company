@@ -5,6 +5,7 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "strict": true
+    "rootDir": ".",
   },
   "include": ["client/src/**/*", "shared/**/*"]
 }
