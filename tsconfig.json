@@ -4,7 +4,7 @@
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
     "rootDir": ".",
   },
   "include": ["client/src/**/*", "shared/**/*"]
