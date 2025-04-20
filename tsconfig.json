@@ -1,17 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "jsx": "preserve",
-    "jsxImportSource": "react",
-    "strict": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "jsx": "react",
+    "strict": false,
     "esModuleInterop": true,
-    "skipLibCheck": false,  // Required for some type resolutions
-    "types": ["node", "@types/lodash"],  // Explicitly include types
-    "rootDir": "./",
-    "outDir": "./dist"
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "client/**/*"],
   "exclude": ["node_modules"]
 }
