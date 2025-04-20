@@ -84,7 +84,7 @@ export function TransactionHistory({
       ));
     }
 
-    return data.(transactions)
+    return data.transactions
       .slice(0, limit)
       .map((transaction: Transaction) => {
         const { bg, text } = getStatusColor(transaction.status);

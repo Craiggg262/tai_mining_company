@@ -1,13 +1,17 @@
-import { Client } from 'pg';
-import dotenv from 'dotenv';
+import { Pool } from 'pg';
+export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+import {routes} from "./routes"
 
-dotenv.config();
-
-export const client = new Client({
+// Render automatically injects env vars
+export const db = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: { 
+    rejectUnauthorized: false // Required for Neon
+  }
 });
 
-client.connect();
+// Connect with error handling
+db.connect()
+  .then(() => console.log("Connected to Neon PostgreSQL"))
+  .catch(err => console.error("Connection error:", err));
+ 

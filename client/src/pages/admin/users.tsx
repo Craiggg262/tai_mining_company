@@ -1,5 +1,4 @@
 import { AdminLayout } from "@/components/admin/AdminLayout";
-import { UsersList } from "@/components/admin/UsersList";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
@@ -8,8 +7,10 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { users } from "@shared/schema";
+export const UsersList = () => { /* component code */ };
+export default UsersList; 
 
-export default function AdminUsers() {
+
   const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
   
@@ -47,7 +48,6 @@ export default function AdminUsers() {
   const activeUsers = getActiveUsers(allUsers);
   const unverifiedUsers = getUnverifiedUsers(allUsers);
 
-  return (
     <AdminLayout>
       <div className="space-y-8">
         <div>
@@ -84,7 +84,7 @@ export default function AdminUsers() {
                 <CardTitle>Active Mining Users</CardTitle>
               </CardHeader>
               <CardContent>
-                <UsersList (property) filterQuery={searchQuery} filterActive={true} />
+                <UsersList filterQuery={searchQuery} filterActive={true} />
               </CardContent>
             </Card>
           </TabsContent>
@@ -102,5 +102,4 @@ export default function AdminUsers() {
         </Tabs>
       </div>
     </AdminLayout>
-  );
-}
+

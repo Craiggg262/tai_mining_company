@@ -36,7 +36,7 @@ interface ReferralStatsProps {
 export function ReferralStats({ className }: ReferralStatsProps) {
   const { user } = useAuth();
   
-  const { data, isLoading } = useQuery <ReferralStatsData>({
+  const { isLoading } = useQuery <ReferralStatsData>({
     queryKey: ['/api/referrals', user?.id],
     enabled: !!user
   });
@@ -66,15 +66,15 @@ export function ReferralStats({ className }: ReferralStatsProps) {
     activeReferrals: number;
     earnings: number;
   }  
-  const { data } = useQuery<ReferralStatsData>("referralStats", fetchReferralStats);
+  const {data} = useQuery<ReferralStatsData>("referralStat", fetchReferralStat);
 
 
-  return (
+
     <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 ${className}`}>
       <StatCard title="Total Referrals" value={data?.totalReferrals || 0} />
 <StatCard title="Active Referrals" value={data?.activeReferrals || 0} />
-<StatCard title="Referral Earnings" value={(data?.earnings || 0)).toFixed(2)} />
+<StatCard title="Referral Earnings" value={(data?.earnings || 0)}>toFixed(2)/</StatCard>
 
     </div>
-  );
+
 }

@@ -71,7 +71,12 @@ export default function Referral() {
       handleCopyReferralLink();
     }
   };
-
+  interface ReferralStatsData {
+    totalReferrals: number;
+    activeReferrals: number;
+    earnings: number;
+  }
+  
   return (
     <DashboardLayout>
       <div className="space-y-8">
@@ -183,18 +188,13 @@ export default function Referral() {
                       </div>
                     </TableCell>
                   </TableRow>
-                ) 
-                interface ReferralStatsData {
-                  totalReferrals: number;
-                  activeReferrals: number;
-                  earnings: number;
-                }
-                
-                : referralsData?.referrals?.length = 0 ? (
-                  referralsData.referrals.map((referral: any)  (
+                )
+              
+                : referralsData?.referrals?.length === 0 ? (
+                  referralsData.referrals.map((referral.any)  (
                     <TableRow key={referral.id}>
                       <TableCell className="font-medium">{referral.name}</TableCell>
-                      <TableCell>{formatDateShort(referral.createdAt)}</TableCell>
+                      <TableCell>{formatDateSchort(referral.createdAt)}</TableCell>
                       <TableCell>
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                           referral.miningActive ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
@@ -217,8 +217,8 @@ export default function Referral() {
                       </div>
                     </TableCell>
                   </TableRow>
-                )
-              </TableBody>
+                )}
+            </TableBody>
             </Table>
           </CardContent>
         </Card>

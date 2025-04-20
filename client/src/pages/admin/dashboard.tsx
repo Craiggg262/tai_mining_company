@@ -63,7 +63,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (statsData?.(stats)) {
       const now = new Date();
-      const stats = statsData.(stats) as SystemStats;
+      const stats = statsData.stats as SystemStats;
       const baseData = {
         users: stats.totalUsers,
         tai: stats.totalTaiBalance,
@@ -104,9 +104,9 @@ export default function AdminDashboard() {
 
   // Prepare data for currency distribution pie chart
   const prepareCurrencyDistribution = () => {
-    if (!statsData?.stats return) [];
+    if (!statsData?.(stats )) [];
     
-    const stats = statsData.(stats) as SystemStats;
+    const stats = statsData.stats as SystemStats;
     const total = stats.totalTaiBalance + stats.totalUsdtBalance;
     
     return [
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
   const pendingWithdrawalsAmount = () => {
     if (!withdrawalsData?.(withdrawals)) return 0;
     
-    return withdrawalsData.(withdrawals).reduce((sum: number, w: any) => {
+    return withdrawalsData.withdrawals.reduce((sum: number, w: any) => {
       return sum + (w.amount || 0);
     }, 0);
   };

@@ -30,6 +30,8 @@ import { useState } from "react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { formatDateShort } from "@/lib/utils";
+import UsersList from "@/pages/admin/users";
+
 
 interface User {
   id: number;
@@ -47,7 +49,7 @@ interface UsersResponse {
   users: User[];
 }
 
-export function UsersList() {
+export function usersData ()
   const { user: adminUser } = useAuth();
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -59,7 +61,7 @@ export function UsersList() {
     usdt: "",
   });
 
-  const { data, isLoading } = useQuery({
+  const { isLoading } = useQuery({
     queryKey: ['/api/admin/users', adminUser?.id],
     enabled: !!adminUser
   });
@@ -99,7 +101,7 @@ export function UsersList() {
   };
 
   if (isLoading) {
-    return (
+     (
       <Card>
         <CardHeader>
           <CardTitle>Users</CardTitle>
@@ -112,8 +114,8 @@ export function UsersList() {
       </Card>
     );
   }
+  const { data } = useQuery ("users", fetchUsers);
 
-  return (
     <Card>
       <CardHeader>
         <CardTitle>Users</CardTitle>
@@ -132,15 +134,12 @@ export function UsersList() {
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
 
-            interface User {
-const { data } = useQuery<UsersResponse>("users", fetchUsers);
+ <TableBody>           
 
-{data?.users.map((user) => (
+{data?.users.map ((user) => (
   <div key={user.id}>{user.name}</div>
-))}}
-
+))}
                   <TableRow key={user.id}>
                     <TableCell>{user.name}</TableCell>
                     <TableCell>
@@ -163,10 +162,9 @@ const { data } = useQuery<UsersResponse>("users", fetchUsers);
                       </Button>
                     </TableCell>
                   </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-        </div>
+             </TableBody>
+             </Table>
+            </div>
         
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogContent>
@@ -218,7 +216,7 @@ const { data } = useQuery<UsersResponse>("users", fetchUsers);
             </DialogFooter>
           </DialogContent>
         </Dialog>
-      </CardContent>
-    </Card>
-  );
-}
+        </CardContent>
+      </Card>
+    
+

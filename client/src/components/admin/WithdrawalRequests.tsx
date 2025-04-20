@@ -60,7 +60,7 @@ export function WithdrawalRequests({ filterQuery = "" }: WithdrawalRequestsProps
     if (!filterQuery) return data as any;
     
     const query = filterQuery.toLowerCase();
-    return data.(withdrawals).filter(
+    return data.withdrawals.filter(
       (w: any) => 
         (w.user?.name && w.user.name.toLowerCase().includes(query)) || 
         (w.user?.email && w.user.email.toLowerCase().includes(query)) ||

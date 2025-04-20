@@ -39,7 +39,7 @@ export default function Mining() {
 
   useEffect(() => {
     // Calculate mining stats from transactions
-    if (transactions?.(transactions)) {
+    if (transactions?.transactions) {
       const now = new Date();
       const today = new Date(now.setHours(0, 0, 0, 0));
       const weekStart = new Date(now);
@@ -47,7 +47,7 @@ export default function Mining() {
       const monthStart = new Date(now);
       monthStart.setDate(1);
 
-      const miningRewards = transactions.(transactions).filter(
+      const miningRewards = transactions.filter(
         (tx: any) => tx.type === 'mining_reward'
       );
 
@@ -74,7 +74,7 @@ export default function Mining() {
   // Generate mining history for display
   // In a real app, this would come from the API
   const miningHistory: MiningSession[] = transactions?.(transactions)
-    ? transactions.(transactions)
+    ? transactions.transactions
       .filter((tx: any) => tx.type === 'mining_reward')
       .slice(0, 10)
       .map((tx: any) => ({

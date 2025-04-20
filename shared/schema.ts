@@ -23,7 +23,7 @@ export const transactionStatusEnum = pgEnum('transaction_status', [
   'completed', 
   'rejected'
 ]);
-(
+
 // Enum for withdrawal status
 export const withdrawalStatusEnum = pgEnum('withdrawal_status', [
   'pending', 
@@ -57,7 +57,7 @@ export const users = pgTable("users", {
   referredBy: integer("referred_by").references(() => users.id),
   taiId: text("tai_id").notNull().unique(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
-  lastMiningAt: timestamp("last_mining_at"),
+  lastMiningAt: timestamp("last_mining_at").defaultNow().notNull(),
   miningActive: boolean("mining_active").default(false),
   emailVerified: boolean("email_verified").default(false),
   otpCode: text("otp_code"),
