@@ -7,10 +7,10 @@
       "node": ">=18.0.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "  ts-node/client/ src/index.css",
-    "start":   "tsc && node dist/server/index.js",
-    "check": "tsc",
+    "dev": "cross-env NODE_ENV=development ts-node-esm server/index.ts",
+    "build":"tsc && esbuild client/src/index.css --bundle --loader:.css=file --outdir=dist/client",
+    "start":"cross-env NODE_ENV=production node dist/server/index.js",
+    "check": "tsc --noEmit",
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
