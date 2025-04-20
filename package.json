@@ -1,16 +1,15 @@
 {
   "name": "rest-express",
   "version": "1.0.0",
-  "type": "commonjs",
-    "type": "module",
+  "type": "module",
   "license": "MIT",
   "engines": {
       "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "esbuild client/src/index.css --bundle --loader:.css=file --outdir=dist",
-    "start": " ts-node /server/index.ts",
+    "build": "  ts-node/esm src/server/index.ts",
+    "start":   "tsc && node dist/index.js",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
