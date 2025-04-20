@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "./dist",
-    "esModuleInterop": true,
+    "jsx": "preserve",
+    "jsxImportSource": "react",
     "strict": true,
-    "rootDir":  "./",
+    "esModuleInterop": true,
+    "skipLibCheck": false,  // Required for some type resolutions
+    "types": ["node", "@types/lodash"],  // Explicitly include types
+    "rootDir": "./",
+    "outDir": "./dist"
   },
-    "include": [
-    "src/**/*",
-    "client/**/*"  // Explicitly include client files
-  ]
+  "include": ["src/**/*", "client/**/*"],
+  "exclude": ["node_modules"]
 }
