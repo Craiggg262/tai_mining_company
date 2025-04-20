@@ -114,8 +114,9 @@
   "react-dom": "^18.2.0",
   "@mui/material": "^5.15.0",
   "@emotion/react": "^11.11.0",
-  "@emotion/styled": "^11.11.0
+  "@emotion/styled": "^11.11.0"
   },
+  
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
   }
