@@ -14,4 +14,5 @@ export const db = new Client({
 db.connect()
   .then(() => console.log("Connected to Neon PostgreSQL"))
   .catch(err => console.error("Connection error:", err));
+
  
