@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
     "esModuleInterop": true,
     "strict": true,
-    "rootDir": ".",
+    "rootDir":  "./src",
   },
   "include": ["client/src/**/*", "shared/**/*"]
 }
